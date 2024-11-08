@@ -1,0 +1,9 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Task-Manager Documentation",
+        "description": "Documentation made for my task-manager api",
+        "version": "1.0.0"
+    },
+    "basePath": "/"
+}

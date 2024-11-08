@@ -29,6 +29,7 @@ app.get('/showTasks', (req, res) => {
     res.json(tasks)
 })
 
+const PORT = 3000;
 app.listen(3000, () => {
-    console.log('Porta 3000 funcionando!')
+    console.log(`Server running PORT ${PORT}`)
 })

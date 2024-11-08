@@ -5,14 +5,13 @@ const sequelize = new Sequelize({
     storage: 'dom.sqlite'
 });
 
-sequelize.authenticate()
+sequelize.authenticate() 
     .then(() => {
         console.log('Conexão feita com sucesso.');
         return sequelize.sync();
     })
-
     .catch(err => {
-        console.error('Não foi possível se conectar.', err);
+        console.error('Não foi possivel se conectar', err);
     })
 
 module.exports = sequelize;

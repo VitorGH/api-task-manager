@@ -20,3 +20,5 @@ class TaskService {
         return taskRepository.findAll()
     }
 }
+
+module.exports = new TaskService()

@@ -13,3 +13,5 @@ class TaskRepository {
         return await Task.findAll()
     }
 }
+
+module.exports = new TaskRepository()

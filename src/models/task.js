@@ -1,7 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const User = require('./user')
 
-const Task = sequelize.define('Tasks', {
+const Task = sequelize.define('Task', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -24,15 +25,27 @@ const Task = sequelize.define('Tasks', {
         allowNull: true
     },
 
-    createdOn: {
-        type: DataTypes.DATE,
-        allowNull: true
+    ownerId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false
     },
 
-    lastUpdate: {
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: 'now()'
+    },
+
+    updatedAt: {
         type: DataTypes.DATE,
         allowNull: true
     }
+})
+
+Task.hasMany(User, {
+    foreignKey: "fk_user_id",
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
 })
 
 module.exports = Task;

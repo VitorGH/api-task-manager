@@ -7,59 +7,59 @@
     },
 
     "paths": {
-        "/api-task-manager/task/register": {
-          "post": {
-            "tags": ["Task"],
-            "summary": "Create a new task",
-            "requestBody": {
-              "required": true,
+      "/api-task-manager/task/register": {
+        "post": {
+          "tags": ["Task"],
+          "summary": "Create a new task",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["title", "description", "status"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Task created",
               "content": {
                 "application/json": {
                   "schema": {
                     "type": "object",
                     "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
                       "title": {
                         "type": "string"
                       },
                       "description": {
                         "type": "string"
-                      },
-                      "status": {
-                        "type": "string"
-                      }
-                    },
-                    "required": ["title", "description", "status"]
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "description": "Task created",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer"
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        }
                       }
                     }
                   }
                 }
-              },
-              "400": {
-                "description": "Error to create task"
               }
+            },
+            "400": {
+              "description": "Error to create task"
             }
           }
         }
+      }
     }
 }

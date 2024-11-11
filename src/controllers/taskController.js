@@ -3,7 +3,7 @@ const router = express.Router();
 const taskService = require('../services/taskService');
 const authenticateToken = require('../middleware/auth');
 
-router.post('/show', authenticateToken, async (req, res) => {
+router.get('/show', authenticateToken, async (req, res) => {
     try {
         const task = await taskService.getUserTasks();
         res.status(200).json(task)
@@ -11,3 +11,5 @@ router.post('/show', authenticateToken, async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 })
+
+module.exports = router;

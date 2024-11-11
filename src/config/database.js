@@ -8,7 +8,7 @@ const sequelize = new Sequelize({
 sequelize.authenticate() 
     .then(() => {
         console.log('Connected DB with sequelize.');
-        return sequelize.sync({ force: true });
+        return sequelize.sync();
     })
     .catch(err => {
         console.error('Error in src/config/database.js ' + err);

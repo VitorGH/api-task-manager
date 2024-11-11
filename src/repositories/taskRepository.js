@@ -2,8 +2,8 @@ const Task = require('../models/task')
 
 class TaskRepository {
 
-    async createTask(task){
-        return await Task.create(task)
+    async getTasks(id){
+        return await Task.findAll({where: id})
     }
 
     

@@ -35,10 +35,10 @@ const Task = sequelize.define('Task', {
     timestamps: true    // Adiciona createdAt e updatedAt automaticamente
 });
 
-Task.hasMany(User, {
-    foreignKey: "fk_user_id",
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-});
+Task.hasMany(Task);
+User.belongsTo(Task, {
+    as: 'ownerId',
+    constraints: false 
+})
 
 module.exports = Task;

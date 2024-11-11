@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const User = require('./user')
+const User = require('./user');
 
 const Task = sequelize.define('Task', {
     id: {
@@ -30,22 +30,15 @@ const Task = sequelize.define('Task', {
         primaryKey: true,
         allowNull: false
     },
-
-    createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: 'now()'
-    },
-
-    updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: true
-    }
-})
+},{
+    tableName: 'Task',  // Define o nome exato da tabela para evitar pluralização
+    timestamps: true    // Adiciona createdAt e updatedAt automaticamente
+});
 
 Task.hasMany(User, {
     foreignKey: "fk_user_id",
     onUpdate: "CASCADE",
     onDelete: "CASCADE"
-})
+});
 
 module.exports = Task;

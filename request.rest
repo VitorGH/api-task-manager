@@ -1,0 +1,18 @@
+### POST 
+POST http://localhost:3000/task-manager/user/register HTTP/1.1 
+content-type: application/json
+
+{
+    "username":"bardev", 
+    "password":"javateste"
+}
+
+POST http://localhost:3000/task-manager/user/login HTTP/1.1 
+content-type: application/json
+
+{
+    "username":"bardev", 
+    "password":"javateste"
+}
+
+GET http://localhost:3000/task-manager/task/show HTTP/1.1 

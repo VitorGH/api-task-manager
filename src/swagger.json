@@ -4,9 +4,8 @@
         "title": "Task-Manager Documentation",
         "description": "Documentation made for my task-manager api",
         "version": "1.0.0"
-    },
-
-    "paths": {
+    }
+}
       "/api-task-manager/task/register": {
         "post": {
           "tags": ["Task"],
@@ -61,5 +60,4 @@
           }
         }
       }
-    }
-}
+    } */

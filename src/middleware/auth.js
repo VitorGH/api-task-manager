@@ -3,18 +3,23 @@ const SECRET_KEY = 'project-admin-key';
 
 function authenticateToken(req, res, next){
     const authHeader = req.headers['authorization'];
-    console.log('req.headers',  req.headers)
-    console.log('authHeader', authHeader)
 
     if (!authHeader) {
-        return res.sendStatus(401);
+        return res.sendStatus(401).json({ error: 'Authorization header missing.' });
     }
 
     const token = authHeader.split(' ')[1];
+    console.log('token', token)
+    console.log("Token decodificado:", jwt.decode(token));
+    if(!token){
+        return res.status(401).json({ error: 'Token not provided.' })
+    }
 
     jwt.verify(token, SECRET_KEY, (err, user) => {
+        console.log('SECRET_KEY', SECRET_KEY)
         if (err) {
-            return res.sendStatus(403);
+            console.error("Erro de verificação do token:", err);
+            return res.status(403).json({ error: 'Token is not valid.' });
         }
         req.user = user;
         next();

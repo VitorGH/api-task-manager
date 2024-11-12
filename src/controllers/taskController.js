@@ -5,10 +5,13 @@ const authenticateToken = require('../middleware/auth');
 
 router.get('/show', authenticateToken, async (req, res) => {
     try {
-        const task = await taskService.getUserTasks();
-        res.status(200).json(task)
+        console.log('req.user', req.user)
+        const ownerId = req.user.id
+        console.log('ownerId', ownerId)
+        const task = await taskService.getUserTasks(ownerId);
+        res.json(task)
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 })
 

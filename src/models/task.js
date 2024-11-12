@@ -27,7 +27,6 @@ const Task = sequelize.define('Task', {
 
     ownerId: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
         allowNull: false
     },
 },{

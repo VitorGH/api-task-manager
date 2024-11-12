@@ -15,4 +15,7 @@ content-type: application/json
     "password":"javateste"
 }
 
-GET http://localhost:3000/task-manager/task/show HTTP/1.1 
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMxNDQ0Njg4LCJleHAiOjE3MzE1MzEwODh9.dsY8x4XYihIffZHfTN3C4HNusfOo0FVWaAyQmjUnSo
+
+GET http://localhost:3000/task-manager/task/show HTTP/1.1
+Authorization: Bearer {{token}}

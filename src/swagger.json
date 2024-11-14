@@ -110,6 +110,38 @@
           }
         }
       }
+    },
+  "/task-manager/task/show": {
+      "get": {
+        "tags": ["Task"],
+        "summary": "Get user tasks",
+        "responses": {
+          "200": {
+            "description": "Task list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "username": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500" :{
+            "description": "Empty task list"
+          }
+        }
+      }
     }
   }
 }

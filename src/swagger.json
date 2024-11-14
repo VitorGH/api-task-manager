@@ -153,6 +153,69 @@
           }
         }
       }
+    },
+    "/task-manager/task/create":{
+      "post": {
+        "tags": ["Task"],
+        "summary": "Create user task",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json":{
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "status":{
+                    "type":"string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "description",
+                  "status"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201":{
+            "description": "Create a task for a user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "status":{
+                        "type":"string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

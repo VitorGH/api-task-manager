@@ -14,7 +14,11 @@ class TaskService {
         })
     }
 
-    async removeUserTask(taskId){
+    async updateTask(newStatus, taskId){
+        return taskRepository.updateTask(newStatus, taskId)
+    }
+
+    async deleteTask(taskId){
         return taskRepository.deleteTask(taskId)
     }
 }

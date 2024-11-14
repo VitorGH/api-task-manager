@@ -5,7 +5,6 @@
     "description": "Documentation for Task Manager API",
     "version": "1.0.0"
   },
-
   "paths": {
     "/task-manager/user/register": {
       "post": {
@@ -25,14 +24,17 @@
                     "type": "string"
                   }
                 },
-                "required": ["username", "password"]
+                "required": [
+                  "username",
+                  "password"
+                ]
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "User Registered",
+            "description": "User registration",
             "content": {
               "application/json": {
                 "schema": {
@@ -55,38 +57,37 @@
         }
       }
     },
-
     "/task-manager/user/login": {
-        "get": {
-          "tags": ["User"],
-          "summary": "User login",
-          "responses": {
-            "200": {
-              "description": "Login Done",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "username": {
-                          "type": "string"
-                        },
-                        "password": {
-                          "type": "string"
-                        }
+      "post": {
+        "tags": ["User"],
+        "summary": "User login",
+        "responses": {
+          "200": {
+            "description": "Try user login",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "username": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
                       }
                     }
                   }
                 }
               }
-            },
-            "400": {
-              "description": "User not found"
             }
+          },
+          "400": {
+            "description": "User not found"
           }
         }
       }
     }
   }
+}

@@ -5,6 +5,15 @@
     "description": "Documentation for Task Manager API",
     "version": "1.0.0"
   },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
   "paths": {
     "/task-manager/user/register": {
       "post": {
@@ -111,10 +120,15 @@
         }
       }
     },
-  "/task-manager/task/show": {
+    "/task-manager/task/show": {
       "get": {
         "tags": ["Task"],
         "summary": "Get user tasks",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Task list",
@@ -125,11 +139,8 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "username": {
-                        "type": "string"
-                      },
-                      "password": {
-                        "type": "string"
+                      "task": {
+                        "type": "array"
                       }
                     }
                   }

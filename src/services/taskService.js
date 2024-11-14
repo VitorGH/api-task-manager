@@ -5,7 +5,7 @@ class TaskService {
         return taskRepository.getTasks(ownerId)
     }
 
-    async createTask(title, description, status){
+    async createTask(title, description, status, ownerId){
         return taskRepository.createTask({
             title: title,
             description: description,

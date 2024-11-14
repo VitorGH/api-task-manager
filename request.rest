@@ -11,8 +11,8 @@ POST http://localhost:3000/task-manager/user/login HTTP/1.1
 content-type: application/json
 
 {
-    "username":"bardev", 
-    "password":"javateste"
+    "username":"bruno", 
+    "password":"leozado"
 }
 
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMxNDQ0Njg4LCJleHAiOjE3MzE1MzEwODh9.dsY8x4XYihIffZHfTN3C4HNusfOo0FVWaAyQmjUnSo

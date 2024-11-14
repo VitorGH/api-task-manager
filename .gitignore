@@ -1,4 +1,7 @@
 # Logs
+
+dom.sqlite
+
 logs
 *.log
 npm-debug.log*

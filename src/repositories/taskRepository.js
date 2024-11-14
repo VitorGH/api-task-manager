@@ -10,8 +10,15 @@ class TaskRepository {
         return await Task.create(newTask)
     }
 
+    async updateTask(newStatus, taskId){
+        return await Task.update(
+            { status: newStatus },
+            { where: { id: taskId } }
+        );
+    }
+
     async deleteTask(taskId){
-        return await Task.findAll({where: taskId})
+        return await Task.destroy({where: {id: taskId}})
     }
 }
 

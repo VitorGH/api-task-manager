@@ -216,6 +216,111 @@
           }
         }
       }
+    },
+    "/task-manager/task/updateStatus":{
+      "put": {
+        "tags": ["Task"],
+        "summary": "Update task status",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json":{
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "taskId": {
+                    "type": "number"
+                  },
+                  "newStatus":{
+                    "type":"string"
+                  }
+                },
+                "required": [
+                  "taskId",
+                  "newStatus"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201":{
+            "description": "Update task status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "taskId": {
+                        "type": "number"
+                      },
+                      "newStatus":{
+                        "type":"string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/task-manager/task/delete":{
+      "delete": {
+        "tags": ["Task"],
+        "summary": "Delete task",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json":{
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "taskId": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "taskId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200":{
+            "description": "Delete task",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "taskId": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const userRepository = require('../repositories/userRepository')
-const SECRET_KEY = 'adminkey';
+const SECRET_KEY = 'project-admin-key';
 
 class UserService {
     async register(username, password){

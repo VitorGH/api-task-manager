@@ -33,20 +33,11 @@ $ cd api-task-manager
 # Abra a pasta no vs code
 $ code .
 
-# No VSCode, abra o terminal
-$ Ctrl + Shift + `
-
-# Instale as dependências
-$ npm install
-
 # No GitBash, utlize o comando para que o Docker baixe e inicialze
 $ docker build -t api-task-manager .
 
 # Após terminar o download, rode este comando
 $ docker run -p 3000:3000 api-task-manager
-
-# De volta ao Terminal do VSCode, execute a aplicação
-$ npm run dev
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
